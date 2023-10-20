@@ -1,0 +1,58 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+
+  //------- css for checkbox---------
+  .checkbox-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .checkbox-label{
+    margin-right: 1rem;
+  }
+
+  //-----------css for display letter---------
+  .display-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    place-items: center;
+
+    @media (max-width: 600px) {
+      grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 600px) and (max-width: 768px) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media (min-width: 768px) and (max-width: 992px) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+
+  .display-component {
+    width: 240px;
+    height: 240px;
+    border: 1px solid #ccc;
+    margin: 10px;
+    padding: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 5px blueviolet;
+    border-radius: 10px;
+
+    h2 {
+      margin-bottom: 10px;
+    }
+
+    p {
+      overflow: hidden;
+      white-space: nowrap;
+    }
+  }
+}
