@@ -1,29 +1,20 @@
 import React, { useState, useEffect } from "react";
-import { DisplayComponentProps, API_BASE_URL } from "../datatype";
-
-const DisplayLetter: React.FC<DisplayComponentProps> = ({
-  checkboxNumber,
-}) => {
+import { DisplayComponentProps } from "../datatype";
+import { fetchData } from "../api";
+const DisplayLetter: React.FC<DisplayComponentProps> = ({ checkboxNumber }) => {
   const [letters, setLetters] = useState<string>("");
-  const fetchData = async () => {
-    try {
-      const response = await fetch(`${API_BASE_URL}/${checkboxNumber}`);
-      const data = await response.json();
-      console.log(data, "data");
-      const slicedLetters = data.letter.slice(-30);
-      console.log(slicedLetters, "sliceleter");
-      setLetters(slicedLetters);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
+  const fetchAPI = async (checkboxNumber: number) => {
+    const data = await fetchData(checkboxNumber);
+    const slicedLetters = data.letter && data.letter.slice(-30);
+    setLetters(slicedLetters);
   };
   useEffect(() => {
-    fetchData();
+    fetchAPI(checkboxNumber);
     const interval = setInterval(() => {
-      fetchData();
+      fetchAPI(checkboxNumber);
     }, 2000);
     return () => clearInterval(interval);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [checkboxNumber]);
 
   return (

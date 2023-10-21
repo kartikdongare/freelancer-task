@@ -13,7 +13,7 @@
     align-items: center;
   }
 
-  .checkbox-label{
+  .checkbox-label {
     margin-right: 1rem;
   }
 
@@ -23,15 +23,15 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
     place-items: center;
 
-    @media (max-width: 600px) {
+    @media (max-width: 653px) {
       grid-template-columns: 1fr;
     }
 
-    @media (min-width: 600px) and (max-width: 768px) {
+    @media (min-width: 654px)and (max-width: 992px) {
       grid-template-columns: 1fr 1fr;
     }
 
-    @media (min-width: 768px) and (max-width: 992px) {
+    @media (min-width: 993px) and (max-width: 1200px) {
       grid-template-columns: 1fr 1fr 1fr;
     }
   }
